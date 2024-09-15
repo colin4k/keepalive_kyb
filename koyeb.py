@@ -125,8 +125,7 @@ def login(usr, pwd):
                 j = 0
                 for i in range(len(lastlogin.get('activities'))):
                     if lastlogin.get('activities')[i].get('object').get('name') == "console" and j < 2:
-                        print(lastlogin.get('count'))
-                        if lastlogin.get('count') > 1 and j == 1:
+                        if not lastlogin.get('count') is None and lastlogin.get('count') > 1 and j == 1:
                             List.append(f"上次登录日期：{get_time_stamp(lastlogin.get('activities')[i].get('created_at'))}")
                         else:
                             List.append(f"当前登录日期：{get_time_stamp(lastlogin.get('activities')[i].get('created_at'))}")
